@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+<!-- Styles block -->
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+<!-- Content block -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best news Review website </title>
+    {% endif %}
+</head>
+
+<body>
+    {% block content %}
+    <!--Popular news section-->
+    <h3> Popular news</h3>
+    <ul>
+        {% for popular_news in popular %}
+        <li>{{popular_news.title}}</li>
+        {% endfor %}
+    </ul>
+    <!--Upcoming news-->
+    <h3>Upcoming news</h3>
+    <ul>
+        {% for upcoming_news in upcoming %}
+        <li>{{upcoming_news.title}}</li>
+        {% endfor %}
+    </ul>
+    <!-- Now showing news-->
+    <h3> Now Showing </h3>
+    <ul>
+        {% for now_showing_news in now_showing %}
+        <li>{{now_showing_news.title}}</li>
+        {% endfor %}
+    </ul>
+    {% endblock%}
+</body>
+
+</html>
