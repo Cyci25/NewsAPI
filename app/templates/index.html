@@ -5,18 +5,25 @@
 
 <body>
     <br>
-    <br>
-    <h3 style="text-align:center; color:#0d47a1" class="display-3">Available News Sources</h3>
+    <hr>
+    <h3 style="text-align:center; color:#0d47a1" class="display-3">AVAILABLE NEWS SOURCES</h3>
+    <hr>
     <div class="container">
         <div class="card-columns">
             {% for source in sources %}
+
             <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header"><a href="/articles/{{source.id}}">{{source.name}}</a></div>
+
+                <div class="card-header">
+                    <a href="/articles/{{source.id}}">{{source.name}}</a>
+                </div>
+
                 <div class="card-body text-secondary">
-                    <!--<h5 class="card-title">Secondary card title</h5>-->
                     <p class="card-text">{{source.description}}</p>
                 </div>
+
             </div>
+
             {% endfor %}
         </div>
     </div>
